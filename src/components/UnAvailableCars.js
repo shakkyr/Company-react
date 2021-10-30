@@ -5,7 +5,7 @@ const UnavailableCars = ({ notAvailableCars }) => {
     <div>
       {notAvailableCars.map((ele) => {
         return (
-          <div>
+          <div key={ele.id}>
             <div>{ele.name}</div>
             <div>
               premium car :
@@ -37,6 +37,7 @@ const UnavailableCars = ({ notAvailableCars }) => {
                 style={{ width: "20%", height: "20%", borderRadius: "10px" }}
                 alt="avatar"
               ></img>
+              rented for : {ele.rentDetails.name}
             </div>
           </div>
         );

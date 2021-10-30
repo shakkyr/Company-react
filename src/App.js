@@ -5,28 +5,24 @@ import CompanyWorkers from "./components/companyWorkers";
 import FronPage from "./components/mainScreen";
 import CarList from "./components/carList";
 import Shadi from "./components/adminScreen";
-import './App.css';
-import Employee from "./components/employee";
+import "./App.css";
 
 export default function BasicExample() {
   return (
     <Router>
       <div className="navigation">
         <ul className="navbar">
-          <li>
+          <li key={1}>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li key={2}>
             <Link to="/admin">Company Co founder</Link>
           </li>
-          <li>
+          <li key={3}>
             <Link to="/workers">Company Workers</Link>
           </li>
-          <li>
+          <li key={4}>
             <Link to="/carlist">Car List of 2021</Link>
-          </li>
-          <li>
-            <Link to="/employee">Employee page</Link>
           </li>
         </ul>
 
@@ -44,9 +40,6 @@ export default function BasicExample() {
           </Route>
           <Route path="/carlist">
             <CarList />
-          </Route>
-          <Route path="/employee">
-            <Employee />
           </Route>
         </Switch>
       </div>

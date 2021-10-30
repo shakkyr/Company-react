@@ -1,17 +1,42 @@
 import React from "react";
 import Employee from "./employee";
 import "../App.css";
+import axios from "axios";
 
 const WorkersList = ({ workers }) => {
   const [show, setShow] = React.useState(true);
+  const [cars, setCars] = React.useState([]);
+  React.useEffect(() => {
+    getCars();
+  }, []);
+
+  const getCars = async () => {
+    await axios
+      .get("https://617c0238d842cf001711c1cc.mockapi.io/cars")
+      .then((res) => {
+        setCars(res.data);
+      });
+  };
 
   const showFunction = (id) => {
     setShow(!show);
   };
 
+  const chooseCar = async (event) => {
+    console.log(event.target.value);
+
+    await axios.put(
+      `https://617c0238d842cf001711c1cc.mockapi.io/cars/${event.target.value}`,
+      {
+        isAvaiable: false,
+        rentDetails: { name: "shadi rada", salary: 100 },
+      }
+    );
+  };
+
   return workers.map((ele) => {
     return (
-      <div>
+      <div key={ele.id}>
         <div>
           <div>{ele.name}</div>
 
@@ -37,6 +62,26 @@ const WorkersList = ({ workers }) => {
                 )}
               </div>
               <Employee workers={ele.id} />
+              {ele.isActive ? (
+                <>
+                  pick a car for this Employee
+                  <select name="carList" onChange={chooseCar}>
+                    {cars.map((c) => {
+                      return c.isAvaiable ? (
+                        <option value={c.id} style={{ color: "green" }}>
+                          {c.name}{" "}
+                        </option>
+                      ) : (
+                        <option disabled value={c.id} style={{ color: "red" }}>
+                          {c.name}
+                        </option>
+                      );
+                    })}
+                  </select>
+                </>
+              ) : (
+                ""
+              )}
             </div>
           )}
         </div>

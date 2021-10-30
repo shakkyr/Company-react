@@ -19,7 +19,7 @@ const CarList = () => {
   React.useEffect(() => {
     console.log(available);
     console.log(notAvailable);
-  }, [available,notAvailable]);
+  }, [available, notAvailable]);
 
   const getData = async () => {
     await axios
@@ -41,16 +41,6 @@ const CarList = () => {
     setAvailable(newAvailable);
     setNoneAvailable(newNotAvailable);
   };
-
- 
-
-  // const updateNewHobbiesHandler = async () => {
-  //   await axios.put("https://617c0238d842cf001711c1cc.mockapi.io/cars/1", {
-  //     name: "Jetta",
-  //     avatar:
-  //       "https://cdn.imgbin.com/15/23/9/imgbin-2015-volkswagen-jetta-car-2014-volkswagen-jetta-2017-volkswagen-jetta-volkswagen-wqDaB1HqgqXNRvU4aTssdW3na.jpg",
-  //   });
-  // };
 
   return (
     <div>

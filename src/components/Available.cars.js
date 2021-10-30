@@ -6,7 +6,7 @@ const AilableCars = ({ availableCars }) => {
     <div>
       {availableCars.map((ele) => {
         return (
-          <div>
+          <div key={ele.id}>
             <div>{ele.name}</div>
             <div>
               premium car :

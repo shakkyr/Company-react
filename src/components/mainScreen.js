@@ -7,7 +7,8 @@ export const FronPage = () => {
         <div className="container">
           <div className="info-left">
             <h1 className="l-heading">
-              <span className="text-primary">Welcome to</span> Raht Alena Bank{" "}
+              <span className="text-primary">Welcome to</span> Designing the
+              Future{" "}
             </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.

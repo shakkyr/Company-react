@@ -14,7 +14,6 @@ const Employee = ({ workers }) => {
         `https://617c0238d842cf001711c1cc.mockapi.io/company/${workers}/workers`
       )
       .then((res) => {
-      
         setEmployee(res.data);
       });
   };
@@ -23,7 +22,7 @@ const Employee = ({ workers }) => {
     <div>
       {employee.map((ele) => {
         return (
-          <div>
+          <div key={ele.id}>
             <div>
               {" "}
               Experince :{" "}
